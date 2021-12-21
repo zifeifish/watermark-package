@@ -1,7 +1,7 @@
 {
   "name": "watermark-package",
-  "version": "1.0.5",
-  "description": "一个简单地前端水印实现npm包",
+  "version": "1.0.4",
+  "description": "一个简单的前端水印实现npm包",
   "main": "index.js",
   "scripts": {
     "test": "npm install watermark-package"
@@ -14,9 +14,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/axios/axios.git"
+    "url": "https://github.com/zifeifish/watermark-package/issues"
   },
   "bugs": {
-    "url": "https://github.com/zifeifish/watermark-package.git"
+    "url": "https://github.com/zifeifish/watermark-package/issues"
   }
 }
