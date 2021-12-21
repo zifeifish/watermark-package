@@ -1,6 +1,6 @@
 {
   "name": "watermark-package",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "一个简单的前端水印实现npm包",
   "main": "index.js",
   "scripts": {
