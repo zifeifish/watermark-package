@@ -4,7 +4,7 @@
 >
 > font-end set watermark
 
-###使用（Usage）
+### 使用（Usage）
 
 方式一：如果过你的页面足够简单，只是一个简单的html静态页面或者是你不想引入太多的package,那么你可以下载 [watermark.umd.min.js](https://github.com/zifeifish/watermark-package/blob/master/dist/watermark.umd.js) 并将其导入到 HTML文件中，这样你就可以使用`watermark`的这个全局对象来加载水印:
 
@@ -33,9 +33,8 @@ npm install watermark-package --save
 import watermark from 'watermark-package'
 ```
 
-导入后就可以调用下面的方法
+## 导入后就可以调用下面的方法
 （After that you can call any of methods that are explained in the following）
----
 
 ## watermark.setWaterMark
 
