@@ -1,6 +1,6 @@
 {
   "name": "watermark-package",
-  "version": "1.0.7",
+  "version": "2.0.0",
   "description": "一个简单的前端水印实现npm包",
   "main": "dist/watermark.esm.js",
   "scripts": {
