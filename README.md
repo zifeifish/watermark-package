@@ -4,59 +4,77 @@
 >
 > font-end set watermark
 
-#### 
+**使用（Usage）**
 
-## 使用（Usage）
+方式一：如果过你的页面足够简单，只是一个简单的html静态页面或者是你不想引入太多的package,那么你可以下载 [watermark.umd.min.js](https://github.com/zifeifish/watermark-package/blob/master/dist/watermark.umd.js) 并将其导入到 HTML文件中，这样你就可以使用`watermark`的这个全局对象来加载水印:
 
-方式一：下载 [watermark.umd.min.js](https://raw.github.com/florian/cookie.js/master/dist/cookie.umd.min.js) 并将其导入到 HTML 文档中，将会添加 一个名为`watermark`的全局对象:
+(Download [watermark.umd.min.js](https://github.com/zifeifish/watermark-package/blob/master/dist/watermark.umd.js) and include it in your HTML document, this will add a global object called `watermark`)
 
-(Download [watermark.umd.min.js](https://raw.github.com/florian/cookie.js/master/dist/cookie.umd.min.js) and include it in your HTML document, this will add a global object called `watermark`)
-
-```html
+```javascript
 <script src="watermark.umd.min.js"></script>
+
+<script type="text/javascript">
+      watermark.setWaterMark(
+         {
+           w_texts: ['娃哈哈', '177****0000'],
+         }
+      )
+</script>
 ```
 
 方式二：用npm包的形式安装到需要使用的项目中去：
 
 (Alternatively you can use a JavaScript package manager to add it to your project)
 
-```sh
+```javascript
 npm install watermark-package --save
 
 // import导入
 import watermark from 'watermark-package'
 ```
 
----
-
-支持AMD and CommonJS
-
-watermark-package supports AMD and CommonJS. So if you want to include watermark-package dynamically, you can just require it with any AMD / CommonJS loader, for example [RequireJS](http://requirejs.org/) for AMD.
-Follow the instructions of your loader to include watermark-package.
-
----
-
 导入后就可以调用下面的方法
-
 After that you can call any of methods that are explained in the following.
+---
 
 ## watermark.setWaterMark
-该方法接收两个字符串作为参数，用于设置水印文案，两个字符串分别会生成两行文字展示（如：第一行为用户名，第二行为用户ID），如果你只需要展示一行文案，第二个字符串请传空字符串。
+
+使用时该方法时传入一个 options 配置对象, 配置对象主要有两个属性：`w_texts`、`w_options`。
+`w_texts`：水印文案的数组集合可设置多行文案。
+`w_options`：水印参数配置项，如字体大小、颜色等
 
 You can use the `watermark.setWaterMark` method to set watermark. The value will automatically be escaped for you.
 
 ```javascript
-watermark.setWaterMark(str1, str2);
+// w_texts：水印文案数组集合
+watermark.setWaterMark(
+   {
+      w_texts: ['娃哈哈', '177****0000']
+   }
+)
 ```
 
-该方法还可额外接收一个对象，用于设置水印的具体参数如宽度，大小等，各参数说明见下表
+options 配置对象还有另一个属性 `w_options`水印参数配置： 用于设置水印的具体参数如宽度，大小等，各参数说明见下表
 
 If you need more options, like setting the width, you can add an object with options as the last parameter:
 
 ```javascript
-watermark.setWaterMark(str1, str2, {
-   w_width: 300
-});
+watermark.setWaterMark(
+   {
+      w_texts: ['娃哈哈', '177****0000'],
+      w_options: {
+        w_width: 240,
+        w_height: 140,
+        w_top: '0px',
+        w_left: '0px',
+        w_rotateDeg: 25,
+        w_font: '1.2rem Vedana',
+        w_color: '#666',
+        w_opacity: '0.2',
+        w_zIndex: '100000',
+    }
+   }
+);
 
 ```
 
@@ -71,7 +89,7 @@ The following fields can be added to the mentioned object:
 | w_rotateDeg | A `string` that specifies SameSite attribute that restricts cookie access based on the site context.<br />(水印角度) | 25 |
 | w_font | A `string` that the watermark font size, font style<br />(水印的字体大小、字体风格) | '1.2rem Vedana' |
 | w_color | A `string` that the watermark font color<br />(水印字体颜色) | '#666' |
-| w_opacity | A `string` that the watermark mask layer transparency<br />(水印遮罩层透明度) | '0.06' |
+| w_opacity | A `string` that the watermark mask layer transparency<br />(水印遮罩层透明度) | '0.2' |
 | w_zIndex | A `string` that the zIndex of watermark mask<br />(水印遮罩层层级) | 10000 |
 
 ## watermark.removeWatermark
@@ -83,4 +101,3 @@ clear watermark
 ```
 watermark.removeWatermark()
 ```
-
