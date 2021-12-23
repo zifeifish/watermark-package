@@ -1,7 +1,7 @@
 {
   "name": "watermark-package",
   "version": "2.0.0",
-  "description": "一个简单的前端水印实现npm包",
+  "description": "一个非常简单的前端设置水印package",
   "main": "dist/watermark.esm.js",
   "scripts": {
     "test": "npm install watermark-package"
@@ -19,6 +19,7 @@
   "bugs": {
     "url": "https://github.com/zifeifish/watermark-package/issues"
   },
+  "types": "src/index.td.ts",
   "browser": "dist/watermark.umd.js",
   "module": "dist/watermark.esm.js",
   "devDependencies": {
