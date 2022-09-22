@@ -105,8 +105,8 @@ Watermark.loadWatermark = (options) => {
   div.style.opacity = _options.w_opacity;
   div.style.position = 'fixed';
   div.style.zIndex = _options.w_zIndex;
-  div.style.width = document.documentElement.clientWidth + 'px';
-  div.style.height = document.documentElement.clientHeight + 'px';
+  div.style.width = '100%';
+  div.style.height = '100%';
   div.style.background = 'url(' + can.toDataURL('image/png') + ') left top repeat';
   document.body.appendChild(div);
 
