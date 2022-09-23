@@ -141,7 +141,7 @@ Watermark.observeDomChange = (waterMarkDom, options) => {
       
       /** 修改了水印节点属性 */
       if (mutation.target === waterMarkDom) {
-        window.alert('非法操作！！！')
+        // window.alert('非法操作！！！')
         mutation.target.remove(); // 删除已经修改的水印节点
         Watermark.loadWatermark(options); // 重新渲染水印
         // 停止观察
@@ -150,7 +150,7 @@ Watermark.observeDomChange = (waterMarkDom, options) => {
 
       /** 强行手动删除了水印节点 */
       if (mutation.removedNodes.length && mutation.removedNodes[0] === waterMarkDom) {
-        window.alert('非法操作！！！')
+        // window.alert('非法操作！！！')
         Watermark.loadWatermark(options);
         // 停止观察
         observer.disconnect();
