@@ -111,8 +111,8 @@
     div.style.opacity = _options.w_opacity;
     div.style.position = 'fixed';
     div.style.zIndex = _options.w_zIndex;
-    div.style.width = document.documentElement.clientWidth + 'px';
-    div.style.height = document.documentElement.clientHeight + 'px';
+    div.style.width = '100%';
+    div.style.height = '100%';
     div.style.background = 'url(' + can.toDataURL('image/png') + ') left top repeat';
     document.body.appendChild(div);
 
@@ -147,7 +147,7 @@
         
         /** 修改了水印节点属性 */
         if (mutation.target === waterMarkDom) {
-          window.alert('非法操作！！！');
+          // window.alert('非法操作！！！')
           mutation.target.remove(); // 删除已经修改的水印节点
           Watermark.loadWatermark(options); // 重新渲染水印
           // 停止观察
@@ -156,7 +156,7 @@
 
         /** 强行手动删除了水印节点 */
         if (mutation.removedNodes.length && mutation.removedNodes[0] === waterMarkDom) {
-          window.alert('非法操作！！！');
+          // window.alert('非法操作！！！')
           Watermark.loadWatermark(options);
           // 停止观察
           observer.disconnect();
