@@ -73,7 +73,7 @@ const watermark: WaterMark = {
      * @param options 水印参数
      */
     setWaterMark: (options: WatermarkOptions) => {
-        let _options: Options = {};
+        let _options: Options = {} as Options;
         if (options.w_options && Object.prototype.toString.call(options.w_options) === "[object Object]") {
             _options = Object.assign({}, w_options, options.w_options);
         } else {
@@ -81,18 +81,18 @@ const watermark: WaterMark = {
         }
 
         if (window.document.getElementById(id) !== null) {
-            window.document.body.removeChild(window.document.getElementById(id));
+            window.document.body.removeChild(window.document.getElementById(id) as HTMLElement);
         }
 
         var can = window.document.createElement('canvas');
         // 设置canvas画布大小
-        can.width = _options.w_width;
-        can.height = _options.w_height;
+        can.width = _options.w_width as number;
+        can.height = _options.w_height as number;
 
-        var cans = can.getContext('2d');
-        cans.rotate(-(_options.w_rotateDeg * Math.PI / 180)); // 水印旋转角度
-        cans.font = _options.w_font;
-        cans.fillStyle = _options.w_color;
+        var cans = can.getContext('2d') as CanvasRenderingContext2D;
+        cans.rotate(-(_options.w_rotateDeg as number * Math.PI / 180)); // 水印旋转角度
+        cans.font = _options.w_font as string;
+        cans.fillStyle = _options.w_color as any;
         cans.textAlign = 'center';
         cans.textBaseline = 'middle';
 
@@ -108,11 +108,11 @@ const watermark: WaterMark = {
         var div = window.document.createElement('div');
         div.id = id;
         div.style.pointerEvents = 'none';
-        div.style.top = _options.w_top;
-        div.style.left = _options.w_left;
-        div.style.opacity = _options.w_opacity;
+        div.style.top = _options.w_top as string;
+        div.style.left = _options.w_left as string;
+        div.style.opacity = _options.w_opacity as string;
         div.style.position = 'fixed';
-        div.style.zIndex = _options.w_zIndex;
+        div.style.zIndex = _options.w_zIndex as string;
         div.style.width = window.document.documentElement.clientWidth + 'px';
         div.style.height = window.document.documentElement.clientHeight + 'px';
         div.style.background = 'url(' + can.toDataURL('image/png') + ') left top repeat';
@@ -123,9 +123,9 @@ const watermark: WaterMark = {
      */
     removeWatermark: () => {
         if (window.document.getElementById(id) !== null) {
-            window.document.body.removeChild(window.document.getElementById(id))
+            window.document.body.removeChild(window.document.getElementById(id) as HTMLElement)
         }
     }
 }
 
-export = watermark
+export default watermark

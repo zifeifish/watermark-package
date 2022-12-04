@@ -36,7 +36,10 @@ Watermark.setWaterMark = (options) => {
 Watermark.removeWatermark = () => {
   var id = WaterMarkDomId
   if (document.getElementById(id) !== null) {
-    document.body.removeChild(document.getElementById(id))
+    Watermark.Observer.disconnect(); // 停止监听
+    setTimeout(() => {
+      document.body.removeChild(document.getElementById(id))
+    }, 0)
   }
 }
 
@@ -138,7 +141,7 @@ Watermark.observeDomChange = (waterMarkDom, options) => {
   // 当观察到变动时执行的回调函数
   const callback = function (mutationsList, observer) {
     for (let mutation of mutationsList) {
-      
+
       /** 修改了水印节点属性 */
       if (mutation.target === waterMarkDom) {
         // window.alert('非法操作！！！')
@@ -160,10 +163,10 @@ Watermark.observeDomChange = (waterMarkDom, options) => {
 
   // 创建一个观察器实例并传入回调函数 
   // 用法详见: https://developer.mozilla.org/zh-CN/docs/Web/API/MutationObserver
-  const Observer = new MutationObserver(callback);
+  Watermark.Observer = new MutationObserver(callback);
 
   // 以上述配置开始观察目标节点
-  Observer.observe(targetNode, config);
+  Watermark.Observer.observe(targetNode, config);
 }
 
 export default Watermark

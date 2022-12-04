@@ -9,6 +9,7 @@
 ------
 ### 更新日志
 
+v2.1.2 修复水印移除失效问题（https://github.com/zifeifish/watermark-package/issues/3）
 v2.1.1 修复窗口缩放刷新后，水印大小不会自适应变化的问题
 
 ------
